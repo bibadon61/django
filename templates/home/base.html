@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'utllis.css' %}" />
+    {% block stylesheet %}{% endblock stylesheet %}
+    <title>{% block tittle %}{% endblock tittle %} | BIBA GAMING</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="/" style="color: var(--color2)">BIBA GAMING</a>
+      </div>
+      <div class="navbar">
+        <nav>
+          <ul class="navBarUl">
+            <li class="navBarUlLi">
+              <a class="navBarUlLiA" id="home" href="/">HOME</a>
+            </li>
+            <li class="navBarUlLi">
+              <a class="navBarUlLiA" id="tutorial" href="tutorial">TUTORIAL</a>
+            </li>
+            <li class="navBarUlLi">
+              <a class="navBarUlLiA" id="gameplay" href="gameplay">GAMEPLAY</a>
+            </li>
+            <li class="navBarUlLi">
+              <a class="navBarUlLiA" id="about" href="about">ABOUT</a>
+            </li>
+            <li class="navBarUlLi">
+              <a class="navBarUlLiA" id="contact" href="contact">CONTACT</a>
+            </li>
+          </ul>
+          <button
+            class="navBarUlImg"
+            id="toggleBtn"
+            value="off"
+            onclick="openNav()"
+          >
+            ☰
+          </button>
+        </nav>
+      </div>
+    </header>
+    <div class="mobile">
+      <ul id="navBarUl">
+        <li><a href="/">HOME</a></li>
+        <li><a href="tutorial">TUTORIAL</a></li>
+        <li><a href="gameplay">GAMEPLAY</a></li>
+        <li><a href="about">ABOUT</a></li>
+        <li><a href="contact">CONTACT</a></li>
+      </ul>
+    </div>
+    <main>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="messageContainer" id="messageContainer">
+        <p>{{ message }}</p>
+        <button onclick="closeMessageBox()"><img src="{%static 'home/img/contact/close.svg'%}" alt="img"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% block body %}{% endblock body %}</main>
+    <footer>
+      <div class="footerA">
+        <a href="privacy" class="footerPrivacy">Privacy Policy</a>
+        <a href="terms" class="footerTerms">Terms & Conditions</a>
+      </div>
+      <div class="footerP">
+        <p class="footerCredit">&copy; 2015-2021. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script>
+      function openNav() {
+        currentValue = document.getElementById("toggleBtn").value;
+
+        if (currentValue == "off") {
+          document.getElementById("toggleBtn").value = "on";
+          document.getElementById("navBarUl").style.display = "block";
+        } else {
+          document.getElementById("toggleBtn").value = "off";
+          document.getElementById("navBarUl").style.display = "none";
+        }
+      }
+
+      function closeMessageBox(){
+        document.getElementById('messageContainer').style.display = "none"
+      }
+    </script>
+    {% block script %}{% endblock script %}
+  </body>
+</html>

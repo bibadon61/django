@@ -1,0 +1,96 @@
+{% extends 'home/base.html' %}
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/homeslider.css' %}">
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/cards.css' %}">
+{% endblock stylesheet %}
+{% block tittle %}Home{% endblock tittle %}
+
+{% block body %}
+{% comment %} slider {% endcomment %}
+<div class="slider">
+    <button class="left currentController" name="left" value="0" onclick="LeftRight('left')"><img src="{% static 'home/img/home/slider/previous.svg' %}" alt="previous"></button>
+    <figure id="imageController">
+        <img src="{% static 'home/img/home/slider/1.jpg' %}" alt="img">
+        <img src="{% static 'home/img/home/slider/2.jpg' %}" alt="img">
+        <img src="{% static 'home/img/home/slider/3.jpg' %}" alt="img">
+        <img src="{% static 'home/img/home/slider/4.jpg' %}" alt="img">
+    </figure>
+    <button class="right currentController" name="right" value="0" onclick="LeftRight('right')"><img src="{% static 'home/img/home/slider/next.svg' %}" alt="next"></button>
+    <div class="navButton">
+        <button class="first current" name="0" ></button>
+        <button class="second" name="1"></button>
+        <button class="third" name="2"></button>
+        <button class="forth" name="3"></button>
+    </div>
+</div>
+
+<section class="cardContainer">
+            <h1 class="tittle">gameplay</h1>
+            <div class="cardHolder">
+                <div class="card">
+                    <a href="">
+                        <img src="{% static 'home/img/home/slider/1.jpg' %}" alt="img">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur voluptatem libero quidem delectus corporis aperiam laborum dolores dicta obcaecati.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="{% static 'home/img/home/slider/2.jpg' %}" alt="img">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur voluptatem libero quidem delectus corporis aperiam laborum dolores dicta obcaecati.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="{% static 'home/img/home/slider/3.jpg' %}" alt="img">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur voluptatem libero quidem delectus corporis aperiam laborum dolores dicta obcaecati.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="{% static 'home/img/home/slider/4.jpg' %}" alt="img">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur voluptatem libero quidem delectus corporis aperiam laborum dolores dicta obcaecati.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+<section class="cardContainer">
+            <h1 class="tittle">tutorial</h1>
+            <div class="cardHolder">
+                <div class="card">
+                    <a href="">
+                        <img src="{% static 'home/img/home/slider/3.jpg' %}" alt="img">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur voluptatem libero quidem delectus corporis aperiam laborum dolores dicta obcaecati.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="{% static 'home/img/home/slider/4.jpg' %}" alt="img">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur voluptatem libero quidem delectus corporis aperiam laborum dolores dicta obcaecati.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="{% static 'home/img/home/slider/2.jpg' %}" alt="img">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur voluptatem libero quidem delectus corporis aperiam laborum dolores dicta obcaecati.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="">
+                        <img src="{% static 'home/img/home/slider/1.jpg' %}" alt="img">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur voluptatem libero quidem delectus corporis aperiam laborum dolores dicta obcaecati.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+{% endblock body %}
+
+{% block script %}
+<script src="{% static 'home/js/slider.js' %}"></script>
+<script>
+    document.getElementById("home").classList.add("current");
+</script>
+{% endblock script %}
